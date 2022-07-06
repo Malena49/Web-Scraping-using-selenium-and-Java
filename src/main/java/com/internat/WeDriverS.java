@@ -1,5 +1,4 @@
 package com.internat;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +15,7 @@ public class WeDriverS {
     public static void main(String[] args){
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebDriverWait webwait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get("https://www.amazon.fr/");
         if (isElementPresent(driver,By.id("sp-cc-rejectall-link"))){
@@ -39,6 +39,8 @@ public class WeDriverS {
         }else {
             System.out.println(marque_apple.getText());
         }
+        WebElement add_cart_btn = driver.findElement(By.id("add-to-cart-button"));
+        add_cart_btn.click();
 
 
 
